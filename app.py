@@ -1,6 +1,8 @@
-import pickle
+
 import streamlit as st
 import requests
+import pickle
+import gzip
 
 # Function to fetch movie poster
 def fetch_poster(movie_id):
@@ -36,9 +38,13 @@ background-size: cover;
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-# Load movie data and similarity matrix
+# Load movie data and similarity matrix from the compressed pickle files
+# with gzip.open('movie_list.pkl.gz', 'rb') as f:
+#     movies = pickle.load(f)
 movies = pickle.load(open('movie_list.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+
+with gzip.open('similarity.pkl.gz', 'rb') as f:
+    similarity = pickle.load(f)
 
 # Add a background image to the entire app
 st.markdown(
@@ -52,6 +58,11 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# Sidebar navigation...
+
+
+
 
 # Sidebar navigation
 selected = st.sidebar.radio("Navigation", ['Home Page', 'Movie Recommender System', 'Contact Me'])
