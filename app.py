@@ -1,7 +1,6 @@
 import pickle
 import streamlit as st
 import requests
-from streamlit_option_menu import option_menu
 
 # Function to fetch movie poster
 def fetch_poster(movie_id):
@@ -54,27 +53,18 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-with st.sidebar:
-    selected = option_menu('Movie Recommender System',
-                           ['Home Page',
-                            'Movie Recommender System',
-                            'Contact Me'],
-                           icons=['house', 'activity', 'person-rolodex'],
-                           default_index=0)
 # Sidebar navigation
-# selected = st.sidebar.radio("Navigation", ['Home Page', 'Movie Recommender System', 'Contact Me'])
+selected = st.sidebar.radio("Navigation", ['Home Page', 'Movie Recommender System', 'Contact Me'])
 st.sidebar.header("Project Creator")
 st.sidebar.info(
     "This web application was created by [Harsh Kumawat](https://www.linkedin.com/in/harsh-kumawat-069bb324b/). "
     "Feel free to reach out for any questions or feedback."
 )
+
 # Main content area
 if selected == 'Home Page':
     st.header('Welcome to Movie Recommender System')
     st.write("This is a simple web application built using Streamlit, allowing users to discover movie recommendations based on their selected preferences.")
-
-    # st.header("Dataset")
-    # st.write("The heart disease dataset used in this project is stored in a CSV file named heartdisease.csv. The dataset contains several features related to individuals' health and a target column indicating the presence (1) or absence (0) of heart disease. Any missing values in the dataset are removed before training the model.")
 
     st.header("Launching the Streamlit Web Application")
     st.write("The Streamlit application has the following main sections:")
@@ -85,10 +75,7 @@ if selected == 'Home Page':
     st.write(" Users can input a movie title or select one from the dropdown menu. Upon clicking the 'Show Recommendation' button, the system will display a list of recommended movies similar to the selected one.")
     st.write("Contact Me")
     st.write("This section provides contact information for getting in touch with the developer or project owner.")
-    # st.write("Please note that the accuracy of the model is based on the dataset available during model training. For real-world predictions, the accuracy may vary.")
 
-
-    # Add content of readme file here
 elif selected == 'Movie Recommender System':
     st.header('Movie Recommender System')
     movie_list = movies['title'].values
@@ -128,7 +115,6 @@ elif selected == 'Contact Me':
         else:
             send_email_to = 'kumawatharsh2004@email.com'
             st.success("Your message has been sent successfully!")
-    # Add contact information here
 
 # Adding the footer
 st.markdown(
