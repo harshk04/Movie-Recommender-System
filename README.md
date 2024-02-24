@@ -2,6 +2,12 @@
 
 Welcome to the Movie Recommender System! This is a simple web application built using Streamlit, allowing users to discover movie recommendations based on their selected preferences.
 
+
+https://github.com/harshk04/Movie-Recommender-System/assets/115946158/c16cb5bd-9fef-4e30-8917-46cdbb4ae5bf
+
+
+
+
 ## Features
 
 - **Movie Recommendation**: Users can input a movie title or select one from the dropdown menu. Upon clicking the "Show Recommendation" button, the system will display a list of recommended movies similar to the selected one.
