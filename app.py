@@ -38,7 +38,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # Load movie data and similarity matrix
 movies = pickle.load(open('movie_list.pkl', 'rb'))
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+# similarity = pickle.load(open('similarity.pkl', 'rb'))
 
 # Add a background image to the entire app
 st.markdown(
